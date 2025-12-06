@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA2</title>
+
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <!--------------------------- given ------------------------------>
+    <template id="shape-card-template">
+        <style>
+            .card {
+                height: var(--card-height);
+                width: var(--card-width);
+                border: var(--card-border) solid gray;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+            }
+
+            .card-face-down {
+                transform: rotateY(180deg);
+
+            }
+
+            .card-face-up {
+                transform: rotateY(0deg);
+            }
+
+            .card-back,
+            .card-front {
+                position: absolute;
+                backface-visibility: hidden;
+            }
+
+            .card-back {
+                transform: rotateY(180deg);
+            }
+        </style>
+        <div class="card card-face-down">    
+            <svg class="card-front" height="100" width="100">
+                <polygon id="triangle" points="50,11 5,89 95,89" fill-opacity="0" />
+                <rect id="square" height="80" width="80" x="10" y="10" fill-opacity="0" />
+                <circle id="circle" r="40" cx="50" cy="50" fill-opacity="0" />
+            </svg>
+            <svg class="card-back" height="100" width="100" style="background-color: gray;">
+                <text x="33" y="75" font-size="80" fill="black">?</text>
+            </svg>
+        </div>
+    </template>
+
+    
+    <!-- ************** example of shape card usage *****************-->
+    <style>
+        h1 { margin-top: 2em;}
+        p { display: flex; flex-direction: row; }
+
+    </style>
+    <h1>Example of a card</h1>
+    <shape-card type="triangle" colour="purple"></shape-card> 
+    
+    <!-- ******************* end of example *****************-->
+ 
+    <!-- ************* your element rendering (the name will be different!) -->
+    <your-element size="3x4"></your-element>
+
+</body>
+
+</html>
