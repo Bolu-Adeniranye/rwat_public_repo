@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA2</title>
+    <title>CA2 – Memory Game</title>
 
     <script type="module" src="main.js"></script>
 </head>
 
 <body>
-    <!--------------------------- given ------------------------------>
+    <!-- Template for ShapeCard (must stay) -->
     <template id="shape-card-template">
         <style>
             .card {
@@ -21,27 +20,17 @@
                 transform-style: preserve-3d;
                 position: relative;
             }
+            .card-face-down { transform: rotateY(180deg); }
+            .card-face-up   { transform: rotateY(0deg); }
 
-            .card-face-down {
-                transform: rotateY(180deg);
-
-            }
-
-            .card-face-up {
-                transform: rotateY(0deg);
-            }
-
-            .card-back,
-            .card-front {
+            .card-back, .card-front {
                 position: absolute;
                 backface-visibility: hidden;
             }
-
-            .card-back {
-                transform: rotateY(180deg);
-            }
+            .card-back { transform: rotateY(180deg); }
         </style>
-        <div class="card card-face-down">    
+
+        <div class="card card-face-down">
             <svg class="card-front" height="100" width="100">
                 <polygon id="triangle" points="50,11 5,89 95,89" fill-opacity="0" />
                 <rect id="square" height="80" width="80" x="10" y="10" fill-opacity="0" />
@@ -53,21 +42,8 @@
         </div>
     </template>
 
-    
-    <!-- ************** example of shape card usage *****************-->
-    <style>
-        h1 { margin-top: 2em;}
-        p { display: flex; flex-direction: row; }
-
-    </style>
-    <h1>Example of a card</h1>
-    <shape-card type="triangle" colour="purple"></shape-card> 
-    
-    <!-- ******************* end of example *****************-->
- 
-    <!-- ************* your element rendering (the name will be different!) -->
-    <your-element size="3x4"></your-element>
+    <!-- Only your game element -->
+    <memory-game size="3x4"></memory-game>
 
 </body>
-
 </html>
