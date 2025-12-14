@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "vite": "^7.2.7"
+  },
+  "dependencies": {
+    "firebase": "^12.6.0"
   }
 }
