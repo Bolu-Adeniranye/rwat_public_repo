@@ -2,9 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -16,30 +16,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ca2
+      - name: Install
+        run: npm ci
 
-      - name: Run tests
+      - name: Test
         run: npm test
-        working-directory: ca2
 
-      - name: Build app
+      - name: Build
         run: npm run build
-        working-directory: ca2
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ca2/dist
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
